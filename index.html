@@ -1,92 +1,107 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#111827">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f4f6fc">
 <title>AMRIT DOCUMENT CENTRE</title>
 <style>
-:root{--bg:#0b1220;--panel:#111c2e;--panel2:#17243a;--line:#293950;--txt:#edf4ff;--muted:#9aabc2;--blue:#3478f6;--green:#18a879;--red:#e45c67}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:15px system-ui,-apple-system,Segoe UI,sans-serif}
-header{background:linear-gradient(120deg,#14264a,#174b87);padding:20px max(16px,calc((100% - 1100px)/2));}
-.brand{display:flex;align-items:center;gap:12px}.logo{background:#3478f6;border-radius:13px;padding:12px;font-size:23px}.brand h1{font-size:18px;margin:0}.brand small{color:#c6dcff}
-main{max-width:1100px;margin:auto;padding:18px 15px 50px}.welcome{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:8px 0 18px}.welcome h2{margin:0;font-size:24px}.muted{color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}.stat,.panel,.tile{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:16px}.stat strong{display:block;font-size:25px;margin-top:5px}.nav{display:flex;gap:8px;overflow:auto;margin:15px 0}.nav button,.btn{border:1px solid var(--line);background:var(--panel2);color:var(--txt);padding:10px 14px;border-radius:10px;cursor:pointer;white-space:nowrap}.nav button.active,.primary{background:var(--blue);border-color:var(--blue);color:white}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.tile{cursor:pointer;text-align:left;color:var(--txt);min-height:115px}.tile .emoji{font-size:25px;display:block;margin-bottom:8px}.tile small{display:block;color:var(--muted);margin-top:5px}.page{display:none}.page.active{display:block}.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}label{display:block;font-size:13px;font-weight:650}input,select{display:block;width:100%;margin-top:6px;background:#0c1728;border:1px solid var(--line);border-radius:9px;color:var(--txt);padding:12px;font:inherit}input[type=file]{padding:9px}button:disabled{opacity:.45;cursor:not-allowed}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.primary{padding:11px 16px;border:0;border-radius:10px;cursor:pointer;font-weight:650}.record{padding:13px;border:1px solid var(--line);border-radius:12px;background:var(--panel);margin-top:10px}.recordtop{display:flex;justify-content:space-between;gap:10px}.record small{color:var(--muted)}.empty{padding:25px;text-align:center;color:var(--muted)}.notice{font-size:12px;color:var(--muted);line-height:1.5;margin-top:12px}.pill{font-size:11px;background:#163e36;color:#80e0bc;border-radius:20px;padding:4px 8px}
-@media(max-width:650px){.grid{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(3,1fr);gap:7px}.stat{padding:11px}.stat strong{font-size:20px}.formgrid{grid-template-columns:1fr}.welcome h2{font-size:20px}}
-@media print{body{background:white;color:black}.no-print,header,.nav{display:none!important}main{padding:0}.record,.panel{background:white;color:black;border:1px solid #aaa}}
-</style>
-</head>
+:root{--bg:#f4f6fc;--ink:#1c2944;--muted:#64718a;--navy:#101a36;--purple:#7869f5;--blue:#129bdc;--line:#dce5f4;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px system-ui,-apple-system,Segoe UI,Arial,sans-serif}
+header{padding:24px 20px 18px;max-width:1200px;margin:auto}.brand{display:flex;align-items:center;gap:15px}.logo{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;color:white;font-size:30px;background:linear-gradient(145deg,#9a7cff,#514eea);box-shadow:0 8px 20px #6254dc44;border:3px solid #d7d1ff}.brand h1{font-size:20px;margin:0;font-weight:850}.brand small{color:var(--muted);font-size:11px;letter-spacing:1.2px}
+main{max-width:1200px;margin:auto;padding:8px 20px 55px}.nav{display:flex;gap:9px;overflow:auto;padding:8px 0 18px}.nav button,.btn{border:1px solid var(--line);background:#fff;color:var(--ink);padding:11px 15px;border-radius:12px;font-weight:700;cursor:pointer;white-space:nowrap}.nav button.active,.primary{background:var(--navy);color:white;border-color:var(--navy)}
+.page{display:none}.page.active{display:block}.section-title{display:flex;align-items:center;gap:15px;margin:16px 0 24px}.section-icon{width:74px;height:74px;border-radius:24px;display:grid;place-items:center;font-size:34px;background:linear-gradient(145deg,#fff,#f4f2ff);box-shadow:0 8px 22px #27365b17}.section-title h2{font-size:21px;margin:0;font-weight:850}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}.service-card{position:relative;text-align:left;background:var(--white);border:1px solid var(--line);border-radius:25px;padding:18px;box-shadow:0 7px 20px #293d6610;min-width:0}.service-card:before{content:"";position:absolute;left:7%;right:7%;top:0;height:4px;border-radius:0 0 5px 5px;background:linear-gradient(90deg,#b79aff,#706cff)}
+.sicon{width:62px;height:62px;border-radius:20px;display:grid;place-items:center;color:white;font-size:29px;background:linear-gradient(145deg,#a78bff,#665af0);box-shadow:0 8px 17px #7464ee38;margin-bottom:14px}.instant .sicon{background:linear-gradient(145deg,#35c3f5,#0789c9);box-shadow:0 8px 17px #0c9bdc38}
+.service-card h3{font-size:16px;margin:0 0 5px;font-weight:800}.price{font-size:18px;font-weight:850;margin-bottom:18px}.card-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.card-actions button{min-width:0;padding:14px 8px;border-radius:17px;font-size:14px;font-weight:800}.apply{background:linear-gradient(140deg,#1a2852,#0c142b);color:white;border:0;box-shadow:0 5px 12px #0d193333}.listbtn{background:#f1f4fa;color:#43516a;border:1px solid #dce5f4}
+.panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 7px 20px #293d660b}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:5px 0 18px}.stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px}.stat strong{display:block;font-size:24px;margin-top:4px}.muted{color:var(--muted)}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}label{display:block;font-weight:700;font-size:13px}input,select,textarea{width:100%;margin-top:6px;padding:12px;border:1px solid var(--line);border-radius:11px;background:#fbfcff;color:var(--ink);font:inherit}input[type=file]{padding:9px}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.primary{padding:12px 17px;border:0;border-radius:12px;cursor:pointer;font-weight:800}.record{background:#fff;border:1px solid var(--line);border-radius:15px;padding:14px;margin-top:10px}.recordtop{display:flex;justify-content:space-between;gap:10px}.record small{color:var(--muted)}.pill{display:inline-block;background:#e9f7f1;color:#16734d;padding:5px 10px;border-radius:30px;font-size:11px;font-weight:800}.notice{font-size:12px;line-height:1.55;color:var(--muted);margin-top:15px}.links{display:flex;gap:13px;flex-wrap:wrap}.links a{color:#315acb;font-weight:700}.hidden{display:none}.empty{padding:25px;text-align:center;color:var(--muted)}
+@media(max-width:600px){header{padding:20px 18px 10px}.logo{width:62px;height:62px}.brand h1{font-size:18px}main{padding:6px 14px 40px}.cards{gap:12px}.service-card{padding:14px;border-radius:21px}.sicon{width:54px;height:54px;border-radius:17px;font-size:25px}.service-card h3{font-size:14px}.price{font-size:17px;margin-bottom:14px}.card-actions{gap:7px}.card-actions button{font-size:12px;padding:12px 5px;border-radius:14px}.section-icon{width:62px;height:62px}.section-title h2{font-size:19px}.stats{gap:7px}.stat{padding:10px}.stat strong{font-size:19px}.formgrid{grid-template-columns:1fr}}
+@media print{header,.nav,.no-print{display:none!important}body{background:white}.page{display:none!important}#history.page.active{display:block!important}.record,.panel{box-shadow:none}}
+</style></head>
 <body>
-<header><div class="brand"><div class="logo">🖨️</div><div><h1>AMRIT DOCUMENT CENTRE</h1><small>ALL IN ONE DOCUMENT & PRINT PORTAL</small></div></div></header>
+<header><div class="brand"><div class="logo">✦</div><div><h1>AMRIT DOCUMENT CENTRE</h1><small>ALL IN ONE ONLINE SERVICE PORTAL</small></div></div></header>
 <main>
- <div class="welcome"><div><div class="muted">PERSONAL ADMIN WORKSPACE</div><h2>Welcome, Admin!</h2></div><span class="pill">LOCAL MODE</span></div>
- <div class="stats">
-  <div class="stat"><span class="muted">Total Jobs</span><strong id="total">0</strong></div>
-  <div class="stat"><span class="muted">Today's Jobs</span><strong id="today">0</strong></div>
-  <div class="stat"><span class="muted">Total Charges</span><strong id="amount">₹0</strong></div>
- </div>
- <nav class="nav no-print">
-  <button class="active" data-page="dashboard">Dashboard</button><button data-page="new">＋ New Job</button><button data-page="history">Customer History</button><button data-page="tools">Print & Services</button>
- </nav>
- <section id="dashboard" class="page active">
-  <h3>Document Services</h3>
-  <div class="grid">
-   <button class="tile" data-service="RC Card Print"><span class="emoji">🚘</span><b>RC Card Print</b><small>Registration Certificate</small></button>
-   <button class="tile" data-service="Driving Licence Print"><span class="emoji">🪪</span><b>DL Print</b><small>Driving Licence</small></button>
-   <button class="tile" data-service="Motor ID Print"><span class="emoji">🚗</span><b>Motor ID Print</b><small>Vehicle documents</small></button>
-   <button class="tile" data-service="Mobile Link Assistance"><span class="emoji">📱</span><b>Mobile Link</b><small>Official linking assistance</small></button>
-   <button class="tile" data-service="PDF Print"><span class="emoji">📄</span><b>PDF Print</b><small>Upload, preview & print</small></button>
-   <button class="tile" data-service="Document Download"><span class="emoji">⬇️</span><b>Document Download</b><small>Authorized downloads</small></button>
-  </div>
-  <div class="panel" style="margin-top:14px"><b>Quick start</b><p class="muted">Create a job, attach a customer-provided document, preview it and print. Job details are saved in this browser.</p><button class="primary no-print" onclick="showPage('new')">Create New Job</button></div>
- </section>
- <section id="new" class="page">
-  <div class="panel">
-   <h3 style="margin-top:0">Create New Print Job</h3>
-   <div class="formgrid">
-    <label>Customer Name<input id="customer" placeholder="Enter customer name"></label>
-    <label>Mobile Number<input id="mobile" inputmode="numeric" maxlength="10" placeholder="10 digit number"></label>
-    <label>Service Type<select id="service"><option value="">Select service</option><option>RC Card Print</option><option>Driving Licence Print</option><option>Motor ID Print</option><option>Mobile Link Assistance</option><option>PDF Print</option><option>Document Download</option></select></label>
-    <label>Service Charge (₹)<input id="charge" type="number" min="0" step="1" placeholder="0"></label>
-    <label style="grid-column:1/-1">Upload customer-provided PDF or image<input id="file" type="file" accept="application/pdf,image/*"></label>
-   </div>
-   <div class="muted" id="fileName" style="font-size:12px;margin-top:8px">No file selected</div>
-   <div class="actions no-print"><button class="primary" id="save">Save Job</button><button class="btn" id="preview" disabled>Preview Document</button><button class="btn" id="print" disabled>Print Document</button></div>
-   <p class="notice">Privacy: This version stores job details in this browser only. Uploaded document bytes are not uploaded to a server. Do not store OTPs, passwords, Aadhaar numbers or other sensitive credentials here.</p>
-  </div>
- </section>
- <section id="history" class="page">
-  <div class="welcome"><h3>Customer History</h3><button class="btn no-print" id="csv">Export CSV</button></div>
-  <input id="search" class="no-print" placeholder="Search by customer, mobile or service">
-  <div id="records"></div>
- </section>
- <section id="tools" class="page">
-  <div class="panel"><h3>Print & Service Desk</h3>
-   <p><b>RC / DL / Motor ID:</b> Use official government portals or documents supplied by the customer. Print only authentic documents.</p>
-   <p><b>Mobile number linking:</b> Direct the customer to the relevant official service. The customer should enter their own OTP on the official page. Never collect or save OTPs.</p>
-   <p><b>PDF printing:</b> Upload a customer-provided PDF or image in New Job, then preview or print.</p>
-   <button class="primary no-print" onclick="window.print()">Print Current Page</button>
-   <p class="notice">This is a personal-use starter website, not an official government portal. It does not fetch RC/DL records or generate government documents.</p>
-  </div>
- </section>
+<nav class="nav no-print"><button class="active" data-page="home">Home</button><button data-page="dashboard">Dashboard</button><button data-page="new">New Application</button><button data-page="history">Customer List</button><button data-page="tools">Official Services</button></nav>
+
+<section id="home" class="page active">
+ <div class="section-title"><div class="section-icon">⚡</div><h2>AI AUTOMATIC SERVICES</h2></div>
+ <div class="cards" id="automatic"></div>
+ <div class="section-title" style="margin-top:48px"><div class="section-icon">⏱️</div><h2>INSTANT SERVICES</h2></div>
+ <div class="cards instant" id="instant"></div>
+ <p class="notice">Service charges are editable sample prices for your own records. “Apply Now” creates a local job/application entry. Actual government downloads or updates require the relevant official portal, customer consent and any required OTP/verification.</p>
+</section>
+
+<section id="dashboard" class="page">
+ <h2>Admin Dashboard</h2><div class="stats"><div class="stat"><span class="muted">Total Applications</span><strong id="total">0</strong></div><div class="stat"><span class="muted">Today's Applications</span><strong id="today">0</strong></div><div class="stat"><span class="muted">Total Charges</span><strong id="amount">₹0</strong></div></div>
+ <div class="panel"><h3>Quick Actions</h3><div class="actions"><button class="primary" onclick="showPage('new')">＋ New Application</button><button class="btn" onclick="showPage('history')">View Customer List</button></div></div>
+</section>
+
+<section id="new" class="page"><div class="panel"><h2 style="margin-top:0">New Application / Job</h2>
+ <div class="formgrid">
+ <label>Customer Name *<input id="customer" placeholder="Enter customer name" required></label>
+ <label>Mobile Number<input id="mobile" inputmode="numeric" maxlength="10" placeholder="10 digit mobile number"></label>
+ <label>Service Name *<select id="service"><option value="">Select service</option></select></label>
+ <label>Application / Vehicle / Reference No.<input id="reference" placeholder="Optional reference number"></label>
+ <label>Charge (₹)<input id="charge" type="number" min="0" step="1" placeholder="Enter charge"></label>
+ <label>Application Status<select id="status"><option>Pending</option><option>In Progress</option><option>Completed</option><option>On Hold</option></select></label>
+ <label style="grid-column:1/-1">Upload Customer PDF / Image<input id="file" type="file" accept="application/pdf,image/*"></label>
+ <label style="grid-column:1/-1">Notes<textarea id="notes" rows="3" placeholder="Write application notes"></textarea></label>
+ </div><div id="fileName" class="muted" style="font-size:12px;margin-top:8px">No file selected</div>
+ <div class="actions no-print"><button class="primary" id="save">Save Application</button><button class="btn" id="preview" disabled>Preview File</button><button class="btn" id="download" disabled>Download File</button><button class="btn" id="print" disabled>Print File</button><button class="btn" id="clear">Clear</button></div><div id="message" class="muted" style="margin-top:10px"></div>
+ <p class="notice">Do not save OTPs, passwords, Aadhaar credentials or other authentication secrets. This portal does not bypass OTP or identity verification. Attach only documents the customer is authorized to provide.</p>
+ </div></section>
+
+<section id="history" class="page"><div class="panel"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><h2 style="margin:0">Customer List / Applications</h2><div class="actions no-print"><button class="btn" id="csv">Export CSV</button><button class="btn" id="backup">Backup</button><button class="btn" id="restoreBtn">Restore</button><input id="restoreFile" class="hidden" type="file" accept="application/json"></div></div><input id="search" class="no-print" placeholder="Search customer, mobile, service or reference"><div id="records"></div></div></section>
+
+<section id="tools" class="page"><div class="panel"><h2 style="margin-top:0">Official Service Links</h2><p><b>RC / Driving Licence:</b> Use Parivahan or DigiLocker with the customer's consent.</p><p><b>Voter PDF / Voter mobile update:</b> Use the Election Commission's official portal and complete any required verification.</p><p><b>PAN / Aadhaar-related services:</b> Use authorized official channels. Never bypass authentication.</p><p><b>PUC Certificate:</b> A genuine certificate can only be issued by an authorized PUC centre after the required emissions test.</p><div class="links"><a href="https://parivahan.gov.in/" target="_blank" rel="noopener">Parivahan ↗</a><a href="https://voters.eci.gov.in/" target="_blank" rel="noopener">Voters' Services ↗</a><a href="https://www.incometax.gov.in/" target="_blank" rel="noopener">Income Tax / PAN ↗</a><a href="https://digilocker.gov.in/" target="_blank" rel="noopener">DigiLocker ↗</a></div><p class="notice">This is an independent personal-use service-management portal, not a government website. The browser stores records on this device only. There is no server sync or direct government API integration in this version.</p></div></section>
 </main>
 <script>
-const $=id=>document.getElementById(id);
-let jobs=[];try{jobs=JSON.parse(localStorage.getItem('amrit_jobs_v1')||'[]')}catch(e){}
-let selectedFile=null,objectUrl=null;
-function persist(){try{localStorage.setItem('amrit_jobs_v1',JSON.stringify(jobs))}catch(e){alert('Browser storage is full. Export your history and remove old records.');}}
-function showPage(p){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===p));document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===p));if(p==='history')renderHistory();window.scrollTo({top:0,behavior:'smooth'});}
-document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>showPage(b.dataset.page));
-document.querySelectorAll('[data-service]').forEach(b=>b.onclick=()=>{showPage('new');$('service').value=b.dataset.service;});
-$('file').onchange=e=>{selectedFile=e.target.files[0]||null;$('fileName').textContent=selectedFile?selectedFile.name:'No file selected';$('preview').disabled=$('print').disabled=!selectedFile;if(objectUrl)URL.revokeObjectURL(objectUrl);objectUrl=selectedFile?URL.createObjectURL(selectedFile):null;};
-function openDoc(printing){if(!selectedFile||!objectUrl)return;const w=window.open(objectUrl,'_blank');if(!w){alert('Please allow pop-ups for this site.');return;}if(printing)setTimeout(()=>{try{w.focus();w.print()}catch(e){}},900);}
-$('preview').onclick=()=>openDoc(false);$('print').onclick=()=>openDoc(true);
-$('save').onclick=()=>{const name=$('customer').value.trim(),mobile=$('mobile').value.trim(),service=$('service').value;if(!name||!service){alert('Enter customer name and select a service.');return;}if(mobile&&!/^\d{10}$/.test(mobile)){alert('Enter a valid 10-digit mobile number.');return;}jobs.unshift({id:Date.now(),name,mobile,service,charge:Number($('charge').value)||0,file:selectedFile?selectedFile.name:'',date:new Date().toLocaleString(),day:new Date().toLocaleDateString()});persist();updateStats();$('customer').value='';$('mobile').value='';$('service').value='';$('charge').value='';$('file').value='';$('fileName').textContent='No file selected';$('preview').disabled=$('print').disabled=true;selectedFile=null;if(objectUrl)URL.revokeObjectURL(objectUrl);objectUrl=null;alert('Job saved in this browser.');showPage('history');};
-function updateStats(){$('total').textContent=jobs.length;$('today').textContent=jobs.filter(j=>j.day===new Date().toLocaleDateString()).length;$('amount').textContent='₹'+jobs.reduce((s,j)=>s+(Number(j.charge)||0),0).toLocaleString('en-IN');}
-function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function renderHistory(){const q=$('search').value.toLowerCase();const arr=jobs.filter(j=>(j.name+' '+j.mobile+' '+j.service).toLowerCase().includes(q));$('records').innerHTML=arr.length?arr.map(j=>`<div class="record"><div class="recordtop"><b>${esc(j.name)}</b><small>${esc(j.date)}</small></div><div>${esc(j.service)}</div><small>Mobile: ${esc(j.mobile||'—')} · File: ${esc(j.file||'—')}</small><div style="margin-top:7px;font-weight:700">₹${Number(j.charge||0).toLocaleString('en-IN')}</div><button class="btn no-print" style="margin-top:8px" onclick="deleteJob(${j.id})">Delete record</button></div>`).join(''):'<div class="empty">No customer records found.</div>';}
-window.deleteJob=id=>{if(confirm('Delete this history record?')){jobs=jobs.filter(j=>j.id!==id);persist();updateStats();renderHistory();}};
-$('search').oninput=renderHistory;
-$('csv').onclick=()=>{const rows=[['Customer','Mobile','Service','Charge','File','Date'],...jobs.map(j=>[j.name,j.mobile,j.service,j.charge,j.file,j.date])];const csv=rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');const a=document.createElement('a'),u=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'}));a.href=u;a.download='amrit-document-centre-history.csv';a.click();URL.revokeObjectURL(u);};
-updateStats();
-</script>
-</body></html>
+const services=[
+ {name:"LL EXAM AUTOMATIC",price:75,icon:"📄",group:"automatic"},
+ {name:"LL EXAM",price:50,icon:"🎓",group:"automatic"},
+ {name:"LL EXAM PASSWORD RESEND",price:10,icon:"🗝️",group:"automatic"},
+ {name:"Voter PDF",price:40,icon:"🗳️",group:"automatic"},
+ {name:"RC Print PDF",price:25,icon:"🚘",group:"instant"},
+ {name:"DL Print PDF",price:20,icon:"🪪",group:"instant"},
+ {name:"LLR PDF",price:20,icon:"📑",group:"instant"},
+ {name:"Agristack Farmer PDF",price:20,icon:"🌱",group:"instant"},
+ {name:"Voter Mobile Number Update",price:35,icon:"📱",group:"instant"},
+ {name:"Aadhaar to PAN Find",price:25,icon:"↔️",group:"instant"},
+ {name:"PAN Details",price:10,icon:"🪪",group:"instant"},
+ {name:"PAN to Aadhaar Find",price:25,icon:"🔗",group:"instant"},
+ {name:"Vehicle Fitness",price:0,icon:"🚛",group:"instant"},
+ {name:"Motor Insurance",price:0,icon:"🛡️",group:"instant"},
+ {name:"PDF Print",price:0,icon:"🖨️",group:"instant"},
+ {name:"Other Service",price:0,icon:"📁",group:"instant"}
+];
+const $=id=>document.getElementById(id);let jobs=[];try{jobs=JSON.parse(localStorage.getItem('amrit_portal_jobs_v3')||'[]')}catch(e){}
+let chosenFile=null,db=null;
+function renderServices(){for(const group of ["automatic","instant"]){$(group).innerHTML=services.filter(s=>s.group===group).map(s=>`<article class="service-card"><div class="sicon">${s.icon}</div><h3>${s.name}</h3><div class="price">${s.price?"₹"+s.price:"Charge as applicable"}</div><div class="card-actions"><button class="apply" onclick="applyService('${s.name.replace(/'/g,"\\'")}',${s.price})">Apply Now ↗</button><button class="listbtn" onclick="showServiceList('${s.name.replace(/'/g,"\\'")}')">List</button></div></article>`).join("")}
+$("service").innerHTML='<option value="">Select service</option>'+services.map(s=>`<option value="${s.name}">${s.name}</option>`).join("");
+}
+function showPage(p){document.querySelectorAll(".page").forEach(x=>x.classList.toggle("active",x.id===p));document.querySelectorAll("[data-page]").forEach(x=>x.classList.toggle("active",x.dataset.page===p));if(p==="history")renderHistory();if(p==="dashboard")updateStats();window.scrollTo({top:0,behavior:"smooth"})}
+document.querySelectorAll("[data-page]").forEach(b=>b.onclick=()=>showPage(b.dataset.page));
+window.applyService=(name,price)=>{clearForm();$("service").value=name;$("charge").value=price||"";showPage("new")};
+window.showServiceList=name=>{showPage("history");$("search").value=name;renderHistory()};
+function openDB(){return new Promise((resolve,reject)=>{if(!window.indexedDB)return reject(Error("IndexedDB unavailable"));let r=indexedDB.open("AmritPortalFiles",1);r.onupgradeneeded=()=>r.result.createObjectStore("files");r.onsuccess=()=>{db=r.result;resolve()};r.onerror=()=>reject(r.error)})}
+function putFile(id,f){return new Promise((res,rej)=>{let t=db.transaction("files","readwrite");t.objectStore("files").put(f,String(id));t.oncomplete=res;t.onerror=()=>rej(t.error)})}
+function getFile(id){return new Promise((res,rej)=>{let t=db.transaction("files","readonly"),r=t.objectStore("files").get(String(id));r.onsuccess=()=>res(r.result||null);r.onerror=()=>rej(r.error)})}
+function persist(){localStorage.setItem("amrit_portal_jobs_v3",JSON.stringify(jobs))}
+function clearForm(){["customer","mobile","reference","charge","notes"].forEach(k=>$(k).value="");$("service").value="";$("status").value="Pending";$("file").value="";chosenFile=null;$("fileName").textContent="No file selected";["preview","download","print"].forEach(k=>$(k).disabled=true)}
+$("clear").onclick=clearForm;
+$("file").onchange=e=>{chosenFile=e.target.files[0]||null;$("fileName").textContent=chosenFile?chosenFile.name+" · "+(chosenFile.size/1048576).toFixed(2)+" MB":"No file selected";["preview","download","print"].forEach(k=>$(k).disabled=!chosenFile)};
+function fileAction(mode,file){if(!file)return;let u=URL.createObjectURL(file);if(mode==="download"){let a=document.createElement("a");a.href=u;a.download=file.name;a.click()}else{let w=window.open(u,"_blank");if(!w)alert("Please allow pop-ups.");else if(mode==="print")setTimeout(()=>w.print(),900)}setTimeout(()=>URL.revokeObjectURL(u),60000)}
+$("preview").onclick=()=>fileAction("preview",chosenFile);$("print").onclick=()=>fileAction("print",chosenFile);$("download").onclick=()=>fileAction("download",chosenFile);
+$("save").onclick=async()=>{let name=$("customer").value.trim(),service=$("service").value,mobile=$("mobile").value.trim();if(!name||!service){alert("Please enter customer name and choose a service.");return}if(mobile&&!/^\\d{10}$/.test(mobile)){alert("Enter a valid 10-digit mobile number.");return}let id=Date.now(),job={id,name,mobile,service,reference:$("reference").value.trim(),charge:Number($("charge").value)||0,status:$("status").value,file:chosenFile?chosenFile.name:"",notes:$("notes").value.trim(),date:new Date().toLocaleString(),day:new Date().toLocaleDateString()};try{if(chosenFile){if(!db)throw Error("File storage is unavailable");await putFile(id,chosenFile)}jobs.unshift(job);persist();$("message").textContent="Application saved on this device.";clearForm();showPage("history")}catch(e){alert("Could not save. Check browser storage and try again.")}};
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function renderHistory(){let q=$("search").value.toLowerCase();let arr=jobs.filter(j=>(j.name+" "+j.mobile+" "+j.service+" "+j.reference).toLowerCase().includes(q));$("records").innerHTML=arr.length?arr.map(j=>`<div class="record"><div class="recordtop"><b>${esc(j.name)}</b><small>${esc(j.date)}</small></div><div style="margin:5px 0">${esc(j.service)} <span class="pill">${esc(j.status||"Pending")}</span></div><small>Mobile: ${esc(j.mobile||"—")} · Ref: ${esc(j.reference||"—")} · File: ${esc(j.file||"—")}</small><p style="font-weight:800;margin:8px 0">₹${Number(j.charge||0).toLocaleString("en-IN")}</p>${j.notes?`<p class="muted">${esc(j.notes)}</p>`:""}${j.file?`<div class="actions no-print"><button class="btn" onclick="savedAction(${j.id},'preview')">Open File</button><button class="btn" onclick="savedAction(${j.id},'download')">Download</button></div>`:""}<div class="actions no-print"><button class="btn" onclick="changeStatus(${j.id})">Update Status</button><button class="btn" onclick="deleteJob(${j.id})">Delete</button></div></div>`).join(""):'<div class="empty">No applications found.</div>'}
+$("search").oninput=renderHistory;
+window.savedAction=async(id,mode)=>{try{let f=await getFile(id);if(!f)return alert("File not found in this browser.");fileAction(mode,f)}catch(e){alert("Unable to open file.")}};
+window.changeStatus=id=>{let j=jobs.find(x=>x.id===id);if(!j)return;let s=prompt("Enter status: Pending, In Progress, Completed or On Hold",j.status||"Pending");if(s){j.status=s;persist();renderHistory()}};
+window.deleteJob=id=>{if(!confirm("Delete this application record?"))return;jobs=jobs.filter(x=>x.id!==id);persist();renderHistory();updateStats()};
+function updateStats(){$("total").textContent=jobs.length;$("today").textContent=jobs.filter(j=>j.day===new Date().toLocaleDateString()).length;$("amount").textContent="₹"+jobs.reduce((a,j)=>a+(Number(j.charge)||0),0).toLocaleString("en-IN")}
+$("csv").onclick=()=>{let rows=[["Customer","Mobile","Service","Reference","Charge","Status","File","Notes","Date"],...jobs.map(j=>[j.name,j.mobile,j.service,j.reference,j.charge,j.status,j.file,j.notes,j.date])];let csv=rows.map(r=>r.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(",")).join("\r\n"),u=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"})),a=document.createElement("a");a.href=u;a.download="amrit-customer-list.csv";a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)};
+$("backup").onclick=()=>{let u=URL.createObjectURL(new Blob([JSON.stringify({version:3,jobs},null,2)],{type:"application/json"})),a=document.createElement("a");a.href=u;a.download="amrit-portal-backup.json";a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)};
+$("restoreBtn").onclick=()=>$("restoreFile").click();
+$("restoreFile").onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let d=JSON.parse(await f.text());if(!Array.isArray(d.jobs))throw Error();jobs=d.jobs;persist();renderHistory();updateStats();alert("Job records restored. File attachments are not included in this backup.")}catch(x){alert("Invalid backup file.")}e.target.value=""};
+renderServices();(async()=>{try{await openDB()}catch(e){console.warn(e)}updateStats()})();
+</script></body></html>
