@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111827">
+<title>AMRIT DOCUMENT CENTRE</title>
+<style>
+:root{--bg:#0b1220;--panel:#111c2e;--panel2:#17243a;--line:#293950;--txt:#edf4ff;--muted:#9aabc2;--blue:#3478f6;--green:#18a879;--red:#e45c67}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:15px system-ui,-apple-system,Segoe UI,sans-serif}
+header{background:linear-gradient(120deg,#14264a,#174b87);padding:20px max(16px,calc((100% - 1100px)/2));}
+.brand{display:flex;align-items:center;gap:12px}.logo{background:#3478f6;border-radius:13px;padding:12px;font-size:23px}.brand h1{font-size:18px;margin:0}.brand small{color:#c6dcff}
+main{max-width:1100px;margin:auto;padding:18px 15px 50px}.welcome{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:8px 0 18px}.welcome h2{margin:0;font-size:24px}.muted{color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}.stat,.panel,.tile{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:16px}.stat strong{display:block;font-size:25px;margin-top:5px}.nav{display:flex;gap:8px;overflow:auto;margin:15px 0}.nav button,.btn{border:1px solid var(--line);background:var(--panel2);color:var(--txt);padding:10px 14px;border-radius:10px;cursor:pointer;white-space:nowrap}.nav button.active,.primary{background:var(--blue);border-color:var(--blue);color:white}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.tile{cursor:pointer;text-align:left;color:var(--txt);min-height:115px}.tile .emoji{font-size:25px;display:block;margin-bottom:8px}.tile small{display:block;color:var(--muted);margin-top:5px}.page{display:none}.page.active{display:block}.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}label{display:block;font-size:13px;font-weight:650}input,select{display:block;width:100%;margin-top:6px;background:#0c1728;border:1px solid var(--line);border-radius:9px;color:var(--txt);padding:12px;font:inherit}input[type=file]{padding:9px}button:disabled{opacity:.45;cursor:not-allowed}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.primary{padding:11px 16px;border:0;border-radius:10px;cursor:pointer;font-weight:650}.record{padding:13px;border:1px solid var(--line);border-radius:12px;background:var(--panel);margin-top:10px}.recordtop{display:flex;justify-content:space-between;gap:10px}.record small{color:var(--muted)}.empty{padding:25px;text-align:center;color:var(--muted)}.notice{font-size:12px;color:var(--muted);line-height:1.5;margin-top:12px}.pill{font-size:11px;background:#163e36;color:#80e0bc;border-radius:20px;padding:4px 8px}
+@media(max-width:650px){.grid{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(3,1fr);gap:7px}.stat{padding:11px}.stat strong{font-size:20px}.formgrid{grid-template-columns:1fr}.welcome h2{font-size:20px}}
+@media print{body{background:white;color:black}.no-print,header,.nav{display:none!important}main{padding:0}.record,.panel{background:white;color:black;border:1px solid #aaa}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="logo">🖨️</div><div><h1>AMRIT DOCUMENT CENTRE</h1><small>ALL IN ONE DOCUMENT & PRINT PORTAL</small></div></div></header>
+<main>
+ <div class="welcome"><div><div class="muted">PERSONAL ADMIN WORKSPACE</div><h2>Welcome, Admin!</h2></div><span class="pill">LOCAL MODE</span></div>
+ <div class="stats">
+  <div class="stat"><span class="muted">Total Jobs</span><strong id="total">0</strong></div>
+  <div class="stat"><span class="muted">Today's Jobs</span><strong id="today">0</strong></div>
+  <div class="stat"><span class="muted">Total Charges</span><strong id="amount">₹0</strong></div>
+ </div>
+ <nav class="nav no-print">
+  <button class="active" data-page="dashboard">Dashboard</button><button data-page="new">＋ New Job</button><button data-page="history">Customer History</button><button data-page="tools">Print & Services</button>
+ </nav>
+ <section id="dashboard" class="page active">
+  <h3>Document Services</h3>
+  <div class="grid">
+   <button class="tile" data-service="RC Card Print"><span class="emoji">🚘</span><b>RC Card Print</b><small>Registration Certificate</small></button>
+   <button class="tile" data-service="Driving Licence Print"><span class="emoji">🪪</span><b>DL Print</b><small>Driving Licence</small></button>
+   <button class="tile" data-service="Motor ID Print"><span class="emoji">🚗</span><b>Motor ID Print</b><small>Vehicle documents</small></button>
+   <button class="tile" data-service="Mobile Link Assistance"><span class="emoji">📱</span><b>Mobile Link</b><small>Official linking assistance</small></button>
+   <button class="tile" data-service="PDF Print"><span class="emoji">📄</span><b>PDF Print</b><small>Upload, preview & print</small></button>
+   <button class="tile" data-service="Document Download"><span class="emoji">⬇️</span><b>Document Download</b><small>Authorized downloads</small></button>
+  </div>
+  <div class="panel" style="margin-top:14px"><b>Quick start</b><p class="muted">Create a job, attach a customer-provided document, preview it and print. Job details are saved in this browser.</p><button class="primary no-print" onclick="showPage('new')">Create New Job</button></div>
+ </section>
+ <section id="new" class="page">
+  <div class="panel">
+   <h3 style="margin-top:0">Create New Print Job</h3>
+   <div class="formgrid">
+    <label>Customer Name<input id="customer" placeholder="Enter customer name"></label>
+    <label>Mobile Number<input id="mobile" inputmode="numeric" maxlength="10" placeholder="10 digit number"></label>
+    <label>Service Type<select id="service"><option value="">Select service</option><option>RC Card Print</option><option>Driving Licence Print</option><option>Motor ID Print</option><option>Mobile Link Assistance</option><option>PDF Print</option><option>Document Download</option></select></label>
+    <label>Service Charge (₹)<input id="charge" type="number" min="0" step="1" placeholder="0"></label>
+    <label style="grid-column:1/-1">Upload customer-provided PDF or image<input id="file" type="file" accept="application/pdf,image/*"></label>
+   </div>
+   <div class="muted" id="fileName" style="font-size:12px;margin-top:8px">No file selected</div>
+   <div class="actions no-print"><button class="primary" id="save">Save Job</button><button class="btn" id="preview" disabled>Preview Document</button><button class="btn" id="print" disabled>Print Document</button></div>
+   <p class="notice">Privacy: This version stores job details in this browser only. Uploaded document bytes are not uploaded to a server. Do not store OTPs, passwords, Aadhaar numbers or other sensitive credentials here.</p>
+  </div>
+ </section>
+ <section id="history" class="page">
+  <div class="welcome"><h3>Customer History</h3><button class="btn no-print" id="csv">Export CSV</button></div>
+  <input id="search" class="no-print" placeholder="Search by customer, mobile or service">
+  <div id="records"></div>
+ </section>
+ <section id="tools" class="page">
+  <div class="panel"><h3>Print & Service Desk</h3>
+   <p><b>RC / DL / Motor ID:</b> Use official government portals or documents supplied by the customer. Print only authentic documents.</p>
+   <p><b>Mobile number linking:</b> Direct the customer to the relevant official service. The customer should enter their own OTP on the official page. Never collect or save OTPs.</p>
+   <p><b>PDF printing:</b> Upload a customer-provided PDF or image in New Job, then preview or print.</p>
+   <button class="primary no-print" onclick="window.print()">Print Current Page</button>
+   <p class="notice">This is a personal-use starter website, not an official government portal. It does not fetch RC/DL records or generate government documents.</p>
+  </div>
+ </section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+let jobs=[];try{jobs=JSON.parse(localStorage.getItem('amrit_jobs_v1')||'[]')}catch(e){}
+let selectedFile=null,objectUrl=null;
+function persist(){try{localStorage.setItem('amrit_jobs_v1',JSON.stringify(jobs))}catch(e){alert('Browser storage is full. Export your history and remove old records.');}}
+function showPage(p){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===p));document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===p));if(p==='history')renderHistory();window.scrollTo({top:0,behavior:'smooth'});}
+document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>showPage(b.dataset.page));
+document.querySelectorAll('[data-service]').forEach(b=>b.onclick=()=>{showPage('new');$('service').value=b.dataset.service;});
+$('file').onchange=e=>{selectedFile=e.target.files[0]||null;$('fileName').textContent=selectedFile?selectedFile.name:'No file selected';$('preview').disabled=$('print').disabled=!selectedFile;if(objectUrl)URL.revokeObjectURL(objectUrl);objectUrl=selectedFile?URL.createObjectURL(selectedFile):null;};
+function openDoc(printing){if(!selectedFile||!objectUrl)return;const w=window.open(objectUrl,'_blank');if(!w){alert('Please allow pop-ups for this site.');return;}if(printing)setTimeout(()=>{try{w.focus();w.print()}catch(e){}},900);}
+$('preview').onclick=()=>openDoc(false);$('print').onclick=()=>openDoc(true);
+$('save').onclick=()=>{const name=$('customer').value.trim(),mobile=$('mobile').value.trim(),service=$('service').value;if(!name||!service){alert('Enter customer name and select a service.');return;}if(mobile&&!/^\d{10}$/.test(mobile)){alert('Enter a valid 10-digit mobile number.');return;}jobs.unshift({id:Date.now(),name,mobile,service,charge:Number($('charge').value)||0,file:selectedFile?selectedFile.name:'',date:new Date().toLocaleString(),day:new Date().toLocaleDateString()});persist();updateStats();$('customer').value='';$('mobile').value='';$('service').value='';$('charge').value='';$('file').value='';$('fileName').textContent='No file selected';$('preview').disabled=$('print').disabled=true;selectedFile=null;if(objectUrl)URL.revokeObjectURL(objectUrl);objectUrl=null;alert('Job saved in this browser.');showPage('history');};
+function updateStats(){$('total').textContent=jobs.length;$('today').textContent=jobs.filter(j=>j.day===new Date().toLocaleDateString()).length;$('amount').textContent='₹'+jobs.reduce((s,j)=>s+(Number(j.charge)||0),0).toLocaleString('en-IN');}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function renderHistory(){const q=$('search').value.toLowerCase();const arr=jobs.filter(j=>(j.name+' '+j.mobile+' '+j.service).toLowerCase().includes(q));$('records').innerHTML=arr.length?arr.map(j=>`<div class="record"><div class="recordtop"><b>${esc(j.name)}</b><small>${esc(j.date)}</small></div><div>${esc(j.service)}</div><small>Mobile: ${esc(j.mobile||'—')} · File: ${esc(j.file||'—')}</small><div style="margin-top:7px;font-weight:700">₹${Number(j.charge||0).toLocaleString('en-IN')}</div><button class="btn no-print" style="margin-top:8px" onclick="deleteJob(${j.id})">Delete record</button></div>`).join(''):'<div class="empty">No customer records found.</div>';}
+window.deleteJob=id=>{if(confirm('Delete this history record?')){jobs=jobs.filter(j=>j.id!==id);persist();updateStats();renderHistory();}};
+$('search').oninput=renderHistory;
+$('csv').onclick=()=>{const rows=[['Customer','Mobile','Service','Charge','File','Date'],...jobs.map(j=>[j.name,j.mobile,j.service,j.charge,j.file,j.date])];const csv=rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');const a=document.createElement('a'),u=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'}));a.href=u;a.download='amrit-document-centre-history.csv';a.click();URL.revokeObjectURL(u);};
+updateStats();
+</script>
+</body></html>
